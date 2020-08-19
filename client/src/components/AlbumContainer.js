@@ -1,6 +1,6 @@
 import React from 'react'
 import Album from './Album'
-import { getAlbumsByPopular } from '../services/Album'
+import { getAlbumsByPopular,getAlbumsBySearch } from '../services/Album'
 import Title from './Title'
 import Search from './Search'
 class AlbumContainer extends React.Component{
@@ -20,17 +20,10 @@ class AlbumContainer extends React.Component{
             )
     }
 
-    handleSearch = (search)=>{
-        const {albums} = this.state
+    handleSearch = async (search)=>{
+        const responseJSON = await getAlbumsBySearch(search)
         this.setState({
-            albums: ()=>{
-                if(albums[0]["im:name"].label === search){
-                    return albums
-                }else{
-                    const newData = albums.shift();
-                    return []
-                }
-            }
+            albums: responseJSON
         })
     }
     componentDidUpdate(){

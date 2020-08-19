@@ -25,7 +25,9 @@ const filtrarNombre =  (name,listaAlbums)=>{
     //console.log(listaAlbums)
     let listaFiltrada = []
     for(let i=0 ; i<listaAlbums.length ; i++){
-        if(String(listaAlbums[i]["im:name"]["label"]).includes(name)){
+        //valida por nombreAlbum o artistAlbum
+        if(String(listaAlbums[i]["im:name"]["label"]).includes(name) || String(listaAlbums[i]["im:artist"]["label"]).includes(name)
+            || String(listaAlbums[i].category.attributes.term).includes(name)){
             listaFiltrada.push(listaAlbums[i])
         }
     }

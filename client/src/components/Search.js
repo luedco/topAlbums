@@ -7,6 +7,7 @@ class Search extends React.Component{
         this.state={
             search:""
         }
+
     }
     handleChange = (e)=>{
         this.setState({search:e.target.value})
