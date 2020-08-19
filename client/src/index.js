@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import AlbumContainer from './components/AlbumContainer'
 import * as serviceWorker from './serviceWorker';
-
+import './index.css'
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <AlbumContainer/>,
   document.getElementById('root')
 );
 

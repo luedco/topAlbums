@@ -13,7 +13,7 @@ const fetch = require('node-fetch');
 
 
 const fetchApi = async()=>{
-    const response = await fetch('https://itunes.apple.com/us/rss/topalbums/limit=20/json')
+    const response = await fetch('https://itunes.apple.com/us/rss/topalbums/limit=100/json')
     const json = await response.json();
     return json.feed.entry;
 }
