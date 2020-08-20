@@ -20,17 +20,20 @@ body{
 }
 .search-input .search-btn{
     border: 1px solid gray;
-    border-radius: 5px;
     padding: 5px;
 }
-
 .search-input{
     padding: 3px 8px;
-    width: 100px;
+    width: calc(30%);
     margin: 0 8px;
     margin: 10px;
+    border-radius: 10px;
 }
-
+.search-btn{
+    border-radius: 10px;
+    background: #022c43;
+    color:whitesmoke;
+}
 img{
     width: 200px;
     height: 200px;
@@ -88,13 +91,6 @@ img{
       
   }
 
-  .mr-auto{
-      background-color: #022c43;
-  }
-
   .title-a{
       text-decoration: none;
-  }
-  NavBar{
-    background-color: #022c43;
   }

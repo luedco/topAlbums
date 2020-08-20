@@ -3,7 +3,7 @@ import Album from './Album'
 import { getAlbumsByPopular, getAlbumsBySearch } from '../services/Album'
 import Title from './Title'
 import Search from './Search'
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { Navbar,Nav,Form,FormControl,Button } from 'react-bootstrap';
 
 
