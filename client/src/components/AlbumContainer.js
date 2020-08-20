@@ -1,56 +1,72 @@
 import React from 'react'
 import Album from './Album'
-import { getAlbumsByPopular,getAlbumsBySearch } from '../services/Album'
+import { getAlbumsByPopular, getAlbumsBySearch } from '../services/Album'
 import Title from './Title'
 import Search from './Search'
-class AlbumContainer extends React.Component{
-    constructor(props){
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar,Nav,Form,FormControl,Button } from 'react-bootstrap';
+
+
+class AlbumContainer extends React.Component {
+    constructor(props) {
         super(props)
         console.log("constructor")
         this.state = {
             albums: [],
-            isFetch:true
+            isFetch: true
         }
     }
     //obteener de api
-    async componentDidMount(){
+    async componentDidMount() {
         const responseJSON = await getAlbumsByPopular()
         this.setState(
-            {albums: responseJSON,isFetch:false}
-            )
+            { albums: responseJSON, isFetch: false }
+        )
     }
 
-    handleSearch = async (search)=>{
+    handleSearch = async (search) => {
         const responseJSON = await getAlbumsBySearch(search)
         this.setState({
             albums: responseJSON
         })
     }
-    componentDidUpdate(){
+
+    selectedShow(album) {
+        console.log(album)
+    }
+    componentDidUpdate() {
 
     }
     //render info
-    render(){
-        const {isFetch, albums} = this.state
-        if(isFetch){
+    render() {
+        const { isFetch, albums } = this.state
+        if (isFetch) {
             return "Loading ..."
         }
         //const name = this.state.albums[0].title.label
         return (
             <React.Fragment>
-                <Title>iTunes App</Title>
-                <Search handleSearch={this.handleSearch}></Search>
+                <Navbar bg="dark" variant="dark">
+                    <Nav className="mr-auto">
+                        <a href="" className="title-a"><Title>iTunes App</Title></a>
+                    </Nav>
+                    <Search handleSearch={this.handleSearch}></Search>
+                </Navbar>
+                <br />
+               
+               
                 <section className="albums-container">
-                {
-                    albums.map(
-                    (album) => <a href="" className="album-href"><Album 
-                    imageurl={album["im:image"][2].label} 
-                    name={album["im:name"].label}
-                    artist={album["im:artist"].label}
-                    category={album.category.attributes.term}
-                    key={album.id.attributes["im:id"]}/></a>
-                    )
-                }
+                    {
+                        albums.map(
+                            (album) => <div href="" className="album-href"><Album
+                                imageurl={album["im:image"][2].label}
+                                name={album["im:name"].label}
+                                artist={album["im:artist"].label}
+                                category={album.category.attributes.term}
+                                realeaseDate={album["im:releaseDate"]["attributes"].label}
+                                key={album.id.attributes["im:id"]} /></div>
+                        )
+                    }
                 </section>
             </React.Fragment>
         )

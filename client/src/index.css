@@ -26,7 +26,7 @@ body{
 
 .search-input{
     padding: 3px 8px;
-    width: calc(30% - 2em);
+    width: 100px;
     margin: 0 8px;
     margin: 10px;
 }
@@ -45,13 +45,56 @@ img{
     
 }
 
-.single-album {
+.single-album-container {
     flex-shrink: 1;
     flex-basis: 24%;
     text-align: center;
     color: #FFF;
+    padding: 10px;
 }
 
 .album-href{
     text-decoration: none;
 }
+
+.single-album-container {
+    position: relative;
+  }
+  
+
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+
+  }
+  
+  .single-album-container:hover .image {
+    opacity: 0.3;
+  }
+  
+  .single-album-container:hover .middle {
+    opacity: 1;
+  }
+
+  .text{
+      margin: 10px;
+      padding: 25%;
+      
+  }
+
+  .mr-auto{
+      background-color: #022c43;
+  }
+
+  .title-a{
+      text-decoration: none;
+  }
+  NavBar{
+    background-color: #022c43;
+  }
