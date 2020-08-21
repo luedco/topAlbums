@@ -4,6 +4,7 @@ import { getAlbumsByPopular, getAlbumsBySearch } from '../services/Album'
 import Title from './Title'
 import Search from './Search'
 
+
 import { Navbar,Nav,Form,FormControl,Button } from 'react-bootstrap';
 
 
@@ -22,6 +23,7 @@ class AlbumContainer extends React.Component {
         this.setState(
             { albums: responseJSON, isFetch: false }
         )
+        document.title = `Apple's Top Albums`;
     }
 
     handleSearch = async (search) => {
@@ -48,7 +50,7 @@ class AlbumContainer extends React.Component {
             <React.Fragment>
                 <Navbar bg="dark" variant="dark">
                     <Nav className="mr-auto">
-                        <a href="" className="title-a"><Title>iTunes App</Title></a>
+                        <a href="" className="title-a"><Title>Apple Music</Title></a>
                     </Nav>
                     <Search handleSearch={this.handleSearch}></Search>
                 </Navbar>

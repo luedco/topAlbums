@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 import AlbumContainer from './components/AlbumContainer'
 import * as serviceWorker from './serviceWorker';
 import './index.css'
+
+
 ReactDOM.render(
-    <AlbumContainer/>,
+    <AlbumContainer icon={'./assets/search.png'}/>,
   document.getElementById('root')
 );
 
